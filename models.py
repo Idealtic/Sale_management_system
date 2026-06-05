@@ -9,21 +9,22 @@ class Product:
         self.discount_rate = discount_rate              # Phần trăm chiết khấu
 
 class Bill:
-    def __init__(self, bill_id, customer_id, time_created, amount_before_vat, vat, final_amount):
+    def __init__(self, bill_id, customer_id, time_created, vat = 0.1):
         self.bill_id = bill_id                          # Mã hoá đơn
         self.customer_id = customer_id                  # Mã khách hàng
         self.time_created = time_created                # Thời gian tạo    
-        self.amount_before_vat = amount_before_vat      # Tổng tiền trước VAT
+        self.amount_before_vat = 0                      # Tổng tiền trước VAT
         self.vat = vat                                  # Thuế VAT
-        self.final_amount = final_amount                # Tổng tiền phải trả
+        self.final_amount = 0                           # Tổng tiền phải trả
         self.details = []                               # Danh sách lưu chi tiết hoá đơn
+        self.status = 1                                 # Trạng thái (1 = Hợp lệ, 0 = Đã huỷ)
 
 class BillDetail:
-    def __init__(self, product_id, bill_id, quantity, current_price):
+    def __init__(self, product_id, quantity, current_price, current_discount):
         self.product_id = product_id                    # Mã sản phẩm
-        self.bill_id = bill_id                          # Mã hoá đơn
         self.quantity = quantity                        # Số lượng mua
         self.current_price = current_price              # Giá bán tại thời điểm lập hoá đơn
+        self.current_discount = current_discount        # Chiết khấu tại thời điểm lập hoá đơn
 
 class Customer:
     def __init__(self, customer_id, name, phone, gender, customer_type):
