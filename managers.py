@@ -1,0 +1,1 @@
+# Quản lý các đối tượng ở đây
