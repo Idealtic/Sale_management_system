@@ -4,7 +4,7 @@ class DoublyNode:
         self.next = next
         self.prev = prev
 
-class DoublyLinkedList:
+class DoublyLinkedList: # Danh sách liên kết đôi
     def __init__(self):
         self.head = None
         self.tail = None
@@ -31,6 +31,35 @@ class DoublyLinkedList:
             self.head.prev = new_node
             new_node.next = self.head
             self.head = new_node
+
+        self.size += 1
+
+    def insert_at(self, index, val):
+        if index < 0 or index > self.size:
+            print("Lỗi: Index vượt quá giới hạn của danh sách!")
+            return
+        if index == 0:
+            self.prepend(val)
+            return
+        if index == self.size:
+            self.append(val)
+            return
+
+        new_node = DoublyNode(val)
+        if index < self.size // 2:
+            curr = self.head
+            for _ in range(index):
+                curr = curr.next
+        else:
+            curr = self.tail
+            for _ in range(self.size - 1 - index):
+                curr = curr.prev
+
+        prev_node = curr.prev
+        prev_node.next = new_node
+        new_node.prev = prev_node
+        new_node.next = curr
+        curr.prev = new_node
 
         self.size += 1
     
