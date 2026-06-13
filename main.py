@@ -1,1 +1,1 @@
-# Hàm main
+"""Hàm main"""

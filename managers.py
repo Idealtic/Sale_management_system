@@ -1,1 +1,1 @@
-# Quản lý các đối tượng ở đây
+"""File quản lý các đối tượng"""

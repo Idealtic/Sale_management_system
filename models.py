@@ -1,3 +1,4 @@
+"""File chứa các class đối tượng chính (sản phẩm, hoá đơn, chi tiết hoá đơn, khách hàng)"""
 class Product:
     def __init__(self, product_id, name, price, unit, category, min_quantity, discount_rate):
         self.product_id = product_id                    # Mã sản phẩm
@@ -12,9 +13,9 @@ class Bill:
     def __init__(self, bill_id, customer_id, time_created, vat = 0.1):
         self.bill_id = bill_id                          # Mã hoá đơn
         self.customer_id = customer_id                  # Mã khách hàng
-        self.time_created = time_created                # Thời gian tạo    
+        self.time_created = time_created                # Thời gian tạo
+        self.vat = vat                                  # Thuế VAT    
         self.amount_before_vat = 0                      # Tổng tiền trước VAT
-        self.vat = vat                                  # Thuế VAT
         self.final_amount = 0                           # Tổng tiền phải trả
         self.details = []                               # Danh sách lưu chi tiết hoá đơn
         self.status = 1                                 # Trạng thái (1 = Hợp lệ, 0 = Đã huỷ)
@@ -31,6 +32,6 @@ class Customer:
         self.customer_id = customer_id                  # Mã khách hàng
         self.name = name                                # Tên khách hàng
         self.phone = phone                              # Số điện thoại
-        self.gender = gender                            # Giới tính
-        self.customer_type = customer_type              # Loại khách hàng
+        self.gender = gender                            # Giới tính (0 = nam, 1 = nữ, 2 = khác)
+        self.customer_type = customer_type              # Loại khách hàng (0 = khách vãng lai, 1 = khách đã đăng ký)
 

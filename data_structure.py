@@ -1,3 +1,4 @@
+"""Cấu trúc dữ liệu và các thuật toán tự cài đặt"""
 class DoublyNode: # Nút trong danh sách liên kết đôi
     def __init__(self, val, next = None, prev = None):
         self.val = val 
